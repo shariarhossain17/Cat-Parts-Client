@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import auth from "../../firebase.init";
 import Spinner from '../Shared/Spinner';
 
@@ -42,6 +43,12 @@ const Login = () => {
   let from = location.state?.from?.pathname || "/";
   if(user){
     navigate(from, { replace: true });
+    Swal.fire({
+        icon: 'success',
+        title: 'login successful',
+        showConfirmButton: false,
+        timer: 1500
+      })
   }
 
   let signError;
@@ -58,13 +65,18 @@ const Login = () => {
   const forgottenPassword = () => {
     if (email) {
       sendPasswordResetEmail(email);
-    //   toast.success("email send");
+      Swal.fire({
+        icon: 'success',
+        title: 'Email send',
+        showConfirmButton: false,
+        timer: 1500
+      })
     } else {
-    //   toast.error("provide your email");
+        Swal.fire('plz provide your email')
     }
   };
   return (
-    <div class="hero min-h-screen bg-base-200 mt-16">
+    <div class="hero min-h-screen bg-base-200">
       <div class="hero-content ">
         <div class="card max-w-sm  lg:w-96 shadow-2xl bg-base-100">
           <div class="card-body">
