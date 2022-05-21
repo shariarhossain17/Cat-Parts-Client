@@ -12,7 +12,7 @@ const Navbar = () => {
   );
   return (
     <div className="lg:px-12 ">
-      <div class="navbar   ">
+      <div class="navbar">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
