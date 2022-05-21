@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     useAuthState,
     useSendPasswordResetEmail,
@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import auth from "../../firebase.init";
+import useToken from '../../Hooks/useToken';
 import Spinner from '../Shared/Spinner';
 
 
@@ -27,6 +28,8 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, Ferror] =
     useSendPasswordResetEmail(auth);
+
+    const [token] = useToken(user)
   //   signin email and pass
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
@@ -41,15 +44,17 @@ const Login = () => {
   let location = useLocation();
 
   let from = location.state?.from?.pathname || "/";
-  if(user){
-    navigate(from, { replace: true });
-    Swal.fire({
-        icon: 'success',
-        title: 'login successful',
-        showConfirmButton: false,
-        timer: 1500
-      })
-  }
+  useEffect(()=>{
+    if(token){
+        navigate(from, { replace: true });
+        Swal.fire({
+            icon: 'success',
+            title: 'login successful',
+            showConfirmButton: false,
+            timer: 1500
+          })
+      }
+  },[token])
 
   let signError;
 

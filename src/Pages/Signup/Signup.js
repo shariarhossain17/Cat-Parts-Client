@@ -7,7 +7,9 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 import auth from "../../firebase.init";
+import useToken from '../../Hooks/useToken';
 import Spinner from '../Shared/Spinner';
 
   
@@ -20,14 +22,22 @@ import Spinner from '../Shared/Spinner';
       reset,
       formState: { errors },
     } = useForm();
+
+    
     //   google sign
     const [signInWithGoogle, Guser, Gloading, Gerror] = useSignInWithGoogle(auth);
     //   crete user
+
+    
     const [createUserWithEmailAndPassword, Cuser, Cloading, Cerror] =
       useCreateUserWithEmailAndPassword(auth);
   
     //   profile updated
     const [updateProfile, updating, Uerror] = useUpdateProfile(auth);
+    const [token] = useToken(user)
+
+
+    
     // create user
     const onSubmit = async (data) => {
       await createUserWithEmailAndPassword(data.email, data.password);
@@ -44,12 +54,24 @@ import Spinner from '../Shared/Spinner';
     let location = useLocation();
   
     let from = location.state?.from?.pathname || "/";
-    if(user){
+    if(token){
       navigate(from, { replace: true });
+      Swal.fire({
+        icon: 'success',
+        title: 'signup successful',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
+
+
+
     if(Gloading || Cloading){
       return <Spinner></Spinner>
   }
+
+
+  
     // show firebase error
     let signError;
   
