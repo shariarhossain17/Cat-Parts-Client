@@ -1,0 +1,9 @@
+.banner-btn {
+  background: #242c32;
+  color: #fff;
+  transition: 0.9s;
+}
+.banner-btn:hover {
+  background: #fff;
+  color: #242c32;
+}
