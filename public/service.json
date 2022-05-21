@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Brake Disc",
+    "desc": "Bremsscheibe zweiteilig, Geschlitzt/Gelocht, Innenbelüftet, beschichtet, hochgekohlt, mit Schrauben",
+    "minimum-order": "50",
+    "Available": "350",
+    "price": "128",
+    "img": "https://i.ibb.co/0DXDfgC/brake.webp"
+  },
+  {
+    "name": "Engine Mount",
+    "desc": "Reinforced Engine Mount Lexus RX, Toyota Alphard, Previa",
+    "minimum-order": "100",
+    "Available": "770",
+    "price": "100",
+    "img": "https://i.ibb.co/yR8f9wP/engine.jpg"
+  },
+  {
+    "name": "Front Bumper",
+    "desc": "Front bumper for 996 MKI - GT3 / Boxster",
+    "minimum-order": "30",
+    "Available": "200",
+    "price": "873",
+    "img": "https://i.ibb.co/pwhjRsy/bumper.jpg"
+  }
+]
