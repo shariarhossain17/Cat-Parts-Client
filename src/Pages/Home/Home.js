@@ -1,4 +1,5 @@
 import React from 'react';
+import Fotter from '../Shared/Fotter';
 import Navbar from '../Shared/Navbar';
 import PageTitle from '../Shared/PageTitle';
 import Banner from './Banner/Banner';
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner/>
             <CarParts/>
             <BuisnessSummary/>
+            <Fotter/>
         </div>
     );
 };
