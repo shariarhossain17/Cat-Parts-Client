@@ -11,7 +11,7 @@ const Banner = () => {
             <p class="py-6 text-white">
             A complete auto package of fast, powerful features - Auto Parts Shopping Cart by Compunix is the ultimate automotive ecommerce system.
             </p>
-            <button class="banner-btn btn">Get Started</button>
+            <button class="banner-btn">Get Started</button>
           </div>
         </div>
       </div>

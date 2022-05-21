@@ -2,6 +2,9 @@
   background: #242c32;
   color: #fff;
   transition: 0.9s;
+  padding: 15px 30px;
+  font-weight: 600;
+  border-radius: 10px;
 }
 .banner-btn:hover {
   background: #fff;

@@ -1,12 +1,21 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const menuItem = (
+    <>
+      <li>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/about'>About</NavLink>
+      </li>
+    </>
+  );
   return (
-    <div className="lg:px-12 bg-[#242c32]">
+    <div className="lg:px-12 ">
       <div class="navbar   ">
         <div class="navbar-start">
           <div class="dropdown">
-            <label tabindex="0" class="btn btn-white lg:hidden">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -24,26 +33,16 @@ const Navbar = () => {
             </label>
             <ul
               tabindex="0"
-              class="menu menu-compact flex items-center dropdown-content mt-3 p-2 shadow bg-[#242c32]  w-[97vw] text-white"
+              class="menu menu-compact flex items-center dropdown-content mt-3 p-2 shadow bg-[rgb(234,238,241)]  w-[97vw] text-[#242c32]"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {menuItem}
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl text-white">daisyUI</a>
+          <a class="btn btn-ghost normal-case text-xl ">daisyUI</a>
         </div>
-        <div class="navbar-end hidden text-white  lg:flex">
+        <div class="navbar-end hidden  lg:flex">
           <ul class="menu menu-horizontal p-0">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+           {menuItem}
           </ul>
         </div>
       </div>
