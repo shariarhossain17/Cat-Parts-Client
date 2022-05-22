@@ -8,6 +8,7 @@ import auth from "../../firebase.init";
 import Fetcher from "../Api/Fetcher";
 import Fotter from "../Shared/Fotter";
 import Navbar from "../Shared/Navbar";
+import PageTitle from "../Shared/PageTitle";
 import Spinner from "../Shared/Spinner";
 
 const Parts = () => {
@@ -61,10 +62,11 @@ const Parts = () => {
   };
   return (
     <div className="">
+      <PageTitle title={"purchase"}></PageTitle>
       <Navbar />
       <div className="md:flex justify-evenly items-center mt-14">
         <div className="">
-          <img className="max-w-sm lg:max-w-lg mx-auto" src={parts.img} alt="" />
+          <img style={{width:"250px",height:"300px"}} className="max-w-sm lg:max-w-lg mx-auto" src={parts.img} alt="" />
           <div className="mx-auto">
           <h2 className="text-2xl">Name: {parts.name}</h2>
           <p className="">{parts.desc}</p>
@@ -103,7 +105,7 @@ const Parts = () => {
               </label>
               <input
                
-                placeholder={`Available order ${parts?.Available} piece`}
+                placeholder={`Available ${parts?.name} ${parts?.Available} piece`}
                 readOnly
                 className="input input-bordered w-full max-w-xs"
               />
