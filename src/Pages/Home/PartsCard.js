@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PartsCard = ({ part }) => {
-    const {name,img,desc,price,minimum_order,Available} = part
+    const {name,img,desc,price,minimum_order,Available,_id} = part
+    const navigate = useNavigate()
   return (
     <div>
       <div class="card max-w-sm bg-base-100 shadow-2xl mt-10 h-[600px]">
@@ -21,7 +23,7 @@ const PartsCard = ({ part }) => {
           <p className="text-xl">Available: <small>{Available} piece</small></p>
           <p className="text-xl">Price: <small>${price}</small></p>
           <div>
-              <button className=" bg-[#242c32] text-white py-3 px-6 my-4 rounded-md">PURCHASE</button>
+              <button onClick={()=> navigate(`/parts/${_id}`)} className=" bg-[#242c32] text-white py-3 px-6 my-4 rounded-md">PURCHASE</button>
           </div>
         </div>
       </div>
