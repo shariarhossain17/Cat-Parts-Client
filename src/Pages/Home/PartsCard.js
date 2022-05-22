@@ -23,7 +23,7 @@ const PartsCard = ({ part }) => {
           <p className="text-xl">Available: <small>{Available} piece</small></p>
           <p className="text-xl">Price: <small>${price}</small></p>
           <div>
-              <button onClick={()=> navigate(`/parts/${_id}`)} className=" bg-[#242c32] text-white py-3 px-6 my-4 rounded-md">PURCHASE</button>
+              <button onClick={()=> navigate(`/purchase/${_id}`)} className=" bg-[#242c32] text-white py-3 px-6 my-4 rounded-md">PURCHASE</button>
           </div>
         </div>
       </div>
