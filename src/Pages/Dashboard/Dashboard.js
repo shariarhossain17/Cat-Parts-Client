@@ -4,7 +4,6 @@ import Fotter from "../Shared/Fotter";
 import Navbar from "../Shared/Navbar";
 
 const Dashboard = () => {
-  
   return (
     <div>
       <Navbar />

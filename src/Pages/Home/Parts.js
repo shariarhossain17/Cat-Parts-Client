@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import auth from "../../firebase.init";
+import axiosPrivate from "../Api/axiosPrivate";
 import Fetcher from "../Api/Fetcher";
 import Fotter from "../Shared/Fotter";
 import Navbar from "../Shared/Navbar";
@@ -43,9 +44,10 @@ const Parts = () => {
      name:user?.displayName,
      email:user?.email,
      price:parts?.price,
-     order:quantity
+     order:quantity,
+     productName:parts?.name
    }
-    Fetcher.post('orders',order)
+    axiosPrivate.post('orders',order)
     .then(response => {
       console.log(response.data);
       if(response.data.insertedId){
