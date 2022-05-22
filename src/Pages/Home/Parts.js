@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import Fetcher from "../Api/Fetcher";
 import Fotter from "../Shared/Fotter";
@@ -43,7 +44,20 @@ const Parts = () => {
      price:parts?.price,
      order:quantity
    }
-     console.log(order);
+    Fetcher.post('orders',order)
+    .then(response => {
+      console.log(response.data);
+      if(response.data.insertedId){
+        Swal.fire({
+          icon: "success",
+          title: "order successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        reset()
+      }
+    
+    })
   };
   return (
     <div className="">
