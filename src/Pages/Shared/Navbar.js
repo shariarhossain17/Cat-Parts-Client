@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const logOut = () => {
     signOut(auth);
   };
@@ -16,9 +16,11 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </li>
+      )}
       {user ? (
         <button onClick={logOut} className="btn btn-ghost">
           logout
@@ -59,28 +61,25 @@ const Navbar = () => {
             </ul>
           </div>
           <a class="btn btn-ghost normal-case text-xl text-white">daisyUI</a>
-        
         </div>
-       {
-         pathname.includes('dashboard') && (
+        {pathname.includes("dashboard") && (
           <label for="my-drawer-2" class=" lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-white ml-auto"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
-        </label>
-         )
-       }
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-white ml-auto"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
+        )}
         <div class="navbar-end hidden text-white lg:flex">
           <ul class="menu menu-horizontal p-0">{menuItem}</ul>
         </div>

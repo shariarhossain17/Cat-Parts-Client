@@ -12,7 +12,7 @@ const Dashboard = () => {
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col ">
           {/* <!-- Page content here --> */}
-          <h1 className="text-4xl">Welcome to Dashboard</h1>
+          <h1 className="text-4xl font-bold mt-4 text-center">Welcome to Dashboard</h1>
           <Outlet />
         </div>
         <div class="drawer-side">
@@ -24,6 +24,7 @@ const Dashboard = () => {
             </li>
             <li className="text-white">
             <NavLink to='/dashboard/add-review'>Add review</NavLink>
+            <NavLink to='/dashboard/my-profile'>My Profile</NavLink>
             </li>
           </ul>
         </div>
