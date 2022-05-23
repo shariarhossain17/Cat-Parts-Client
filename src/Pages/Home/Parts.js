@@ -129,7 +129,7 @@ const Parts = () => {
               <label className="label">
                 {parseInt(parts?.Available) < parseInt(watch().min_order) ? (
                   <span className="text-red-700 text-xs">
-                    You can not order much than stock
+                    You can not order more than stock
                   </span>
                 ) : parseInt(parts?.minimum_order) >
                   parseInt(watch().min_order) ? (
