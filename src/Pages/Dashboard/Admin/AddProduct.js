@@ -14,14 +14,32 @@ const AddProduct = () => {
 
   const imgApi_key = "c694c4abb3bcf601b0b79494e815c533";
   const onSubmit = async (data) => {
-    const img = data.img[0];
-    var formData = new FormData();
-
-    formData.append("username", "Groucho");
+    const image = data.img[0];
+    const formData = new FormData();
+    formData.append('image', image);
     const url = `https://api.imgbb.com/1/upload?key=${imgApi_key}`;
-    axios.post(url, img).then((response) => {
-      console.log(response);
-    });
+    // fetch(url, {
+    //     method: 'POST',
+    //     body: formData
+    // })
+    // .then(res => res.json())
+    // .then(data => console.log(data))
+    axios.post(url,formData)
+    .then(response => {
+        // console.log(response.data.data.url);
+      
+        if(response.data.success){
+            const img = response.data.data.url;
+            const product = {
+                name:data.name,
+                desc:data.desc,
+                price:data.price,
+                Available:data.Available,
+                minimum_order:data.minimum_order,
+                img:img
+            }
+        }
+    })
     // reset();
   };
 

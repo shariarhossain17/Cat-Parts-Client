@@ -9,7 +9,6 @@ const UseAdmin = (user) => {
         if(email){
            axiosPrivate.get(`admin/${email}`)
            .then(response => {
-               console.log(response.data);
                setAdmin(response.data)
                setAdminLoading(false)
            })
