@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import axiosPrivate from "../Api/axiosPrivate";
@@ -35,32 +35,27 @@ const Parts = () => {
     return <Spinner></Spinner>;
   }
 
- 
- 
-
-  const onSubmit =  (data) => {
-    const quantity = watch("min_order")
-   const order ={
-     name:user?.displayName,
-     email:user?.email,
-     price:parts?.price,
-     order:quantity,
-     productName:parts?.name
-   }
-    axiosPrivate.post('orders',order)
-    .then(response => {
-      console.log(response.data);
-      if(response.data.insertedId){
+  const onSubmit = (data) => {
+    const quantity = watch("min_order");
+    const order = {
+      name: user?.displayName,
+      email: user?.email,
+      price: parts?.price,
+      order: quantity,
+      productName: parts?.name,
+    };
+    axiosPrivate.post("orders", order).then((response) => {
+      if (response.data.insertedId) {
         Swal.fire({
           icon: "success",
           title: "order successful",
           showConfirmButton: false,
           timer: 1500,
         });
-        reset()
+        reset();
       }
-    
-    })
+      Navigate('/')
+    });
   };
   return (
     <div className="">
@@ -68,13 +63,18 @@ const Parts = () => {
       <Navbar />
       <div className="md:flex justify-evenly items-center mt-14">
         <div className="">
-          <img style={{width:"250px",height:"300px"}} className="max-w-sm lg:max-w-lg mx-auto" src={parts.img} alt="" />
+          <img
+            style={{ width: "250px", height: "300px" }}
+            className="max-w-sm lg:max-w-lg mx-auto"
+            src={parts.img}
+            alt=""
+          />
           <div className="mx-auto">
-          <h2 className="text-2xl">Name: {parts.name}</h2>
-          <p className="">{parts.desc}</p>
-          <p className="">price:{`$${parts.price}`}</p>
-          <p className="">Available:{parts.Available}</p>
-          <p className="">Minimum order:{parts.minimum_order}</p>
+            <h2 className="text-2xl">Name: {parts.name}</h2>
+            <p className="">{parts.desc}</p>
+            <p className="">price:{`$${parts.price}`}</p>
+            <p className="">Available:{parts.Available}</p>
+            <p className="">Minimum order:{parts.minimum_order}</p>
           </div>
         </div>
         <div className="shadow-2xl px-16 py-10  lg:w-96">
@@ -84,7 +84,6 @@ const Parts = () => {
                 <span class="label-text">Name</span>
               </label>
               <input
-                
                 readOnly
                 placeholder={user?.displayName}
                 className="input input-bordered w-full max-w-xs"
@@ -95,7 +94,6 @@ const Parts = () => {
                 <span class="label-text">Email</span>
               </label>
               <input
-                
                 placeholder={user?.email}
                 readOnly
                 className="input input-bordered w-full sm:max-w-xs"
@@ -106,7 +104,6 @@ const Parts = () => {
                 <span class="label-text">Available</span>
               </label>
               <input
-               
                 placeholder={`Available ${parts?.name} ${parts?.Available} piece`}
                 readOnly
                 className="input input-bordered w-full max-w-xs"
@@ -140,10 +137,10 @@ const Parts = () => {
                   ""
                 )}
                 {errors.min_order?.type === "required" && (
-                    <span className="label-text-alt text-red-500">
-                      {errors.min_order.message}
-                    </span>
-                  )}
+                  <span className="label-text-alt text-red-500">
+                    {errors.min_order.message}
+                  </span>
+                )}
               </label>
             </div>
             <div class="form-control">
@@ -157,9 +154,14 @@ const Parts = () => {
               />
             </div>
             <div class="form-control mt-6">
-             {  parseInt(parts?.Available) < parseInt(watch().min_order) || parseInt(parts?.minimum_order) > parseInt(watch().min_order) ?
-             <button disabled className="btn">Book Now</button> :<button className="btn">Book Now</button>
-            }
+              {parseInt(parts?.Available) < parseInt(watch().min_order) ||
+              parseInt(parts?.minimum_order) > parseInt(watch().min_order) ? (
+                <button disabled className="btn">
+                  Book Now
+                </button>
+              ) : (
+                <button className="btn">Book Now</button>
+              )}
             </div>
           </form>
         </div>

@@ -7,11 +7,13 @@ import auth from "../../firebase.init";
 import axiosPrivate from "../Api/axiosPrivate";
 import PageTitle from "../Shared/PageTitle";
 import Spinner from "../Shared/Spinner";
+import OrderCancelModal from "./OrderCancelModal";
 import OrdersRow from "./OrdersRow";
 
 const Myorder = () => {
   const [user] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
+  const [cancel,setCancel] = useState(null)
   const { data, isLoading, refetch } = useQuery("orders", () => {
     axiosPrivate.get(`orders/${user?.email}`)
     .then(response  => {
@@ -32,7 +34,7 @@ const Myorder = () => {
     <div>
       <PageTitle title="my-order"></PageTitle>
       <div class="overflow-x-auto">
-        <table class="table table-zebra w-full">
+        <table class="table table-zebra w-full mt-6">
           <thead>
             <tr>
               <th>No</th>
@@ -51,11 +53,13 @@ const Myorder = () => {
                 key={order._id}
                 order={order}
                 index={index}
+                setCancel={setCancel}
               ></OrdersRow>
             ))}
           </tbody>
         </table>
       </div>
+      <OrderCancelModal cancel={cancel} setCancel={setCancel} refetch={refetch}></OrderCancelModal>
     </div>
   );
 };

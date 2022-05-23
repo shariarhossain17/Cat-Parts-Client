@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const OrdersRow = ({ order, index }) => {
+const OrdersRow = ({ order, index,setCancel }) => {
   const { name, productName, price, order: quantity, _id, paid } = order;
   return (
     <tr>
@@ -13,9 +13,7 @@ const OrdersRow = ({ order, index }) => {
       <td>{`$${quantity * price}`}</td>
       <td>
         {!order.paid ? (
-          <button disabled className="text-white rounded-md btn-xs bg-red-700">
-            Cancel
-          </button>
+          <label onClick={()=>setCancel(order)} for="cancel-order" class="btn btn-error modal-button text-white rounded-md btn-xs bg-red-700">Cancel</label>
         ) : (
          <div className="flex">
             <p className="text-slate-800 font-bold">
