@@ -12,13 +12,10 @@ const UpdateProfile = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
       const updateUser = {
-        name: user.displayName,
-        education: event.target.education.value,
-        city: event.target.city.value,
-        district: event.target.district.value,
+        name: event.target.name.value,
         number: event.target.number.value,
       };
-      axiosPrivate.put(`users/${user?.email}`, updateUser).then((response) => {
+      axiosPrivate.patch(`users/${user?.email}`, updateUser).then((response) => {
         console.log(response);
         if (response.data.matchedCount) {
           Swal.fire({
@@ -55,30 +52,6 @@ const UpdateProfile = () => {
                 type="text"
                 readOnly
                 placeholder={`${user?.email}`}
-                class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
-              />
-               <label className='block  font-[500] mt-2 ' htmlFor="">Education:
-              </label>
-              <input
-                name="education"
-                type="text"
-                placeholder={users.education}
-                class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
-              />
-               <label className='block  font-[500] mt-2 ' htmlFor="">city:
-              </label>
-              <input
-                name="city"
-                type="text"
-                placeholder={users.city}
-                class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
-              />
-               <label className='block  font-[500] mt-2 ' htmlFor="">District:
-              </label>
-              <input
-                name="district"
-                type="text"
-                placeholder={users.district}
                 class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
               />
               <label className='block  font-[500] mt-2 ' htmlFor="">Number:

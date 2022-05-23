@@ -15,7 +15,7 @@ const UserInformation = () => {
             setUser(response.data)
         })
        } catch (error) {
-           if(error.response.status === 403){
+           if(error.response.status === 403 || error.response.status){
                signOut(auth)
                Navigate("/")
                localStorage.removeItem("userToken")

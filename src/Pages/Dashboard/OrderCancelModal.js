@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 import axiosPrivate from "../Api/axiosPrivate";
 
 const OrderCancelModal = ({ cancel, setCancel, refetch }) => {
-  console.log(cancel?._id);
   const handleDelete = () => {
     axiosPrivate.delete(`orders/${cancel?._id}`).then((response) => {
       console.log(response);

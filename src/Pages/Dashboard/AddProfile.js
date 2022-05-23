@@ -16,7 +16,7 @@ const AddProfile = () => {
       district: event.target.district.value,
       number: event.target.number.value,
     };
-    axiosPrivate.put(`users/${user?.email}`, updateUser).then((response) => {
+    axiosPrivate.patch(`users/${user?.email}`, updateUser).then((response) => {
       console.log(response);
       if (response.data.matchedCount) {
         Swal.fire({

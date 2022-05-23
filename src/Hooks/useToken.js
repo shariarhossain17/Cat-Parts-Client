@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Fetcher from "../Pages/Api/Fetcher";
 
 const useToken = user =>{
+    console.log(user);
     const [token,setToken] = useState("")
     useEffect(()=>{
         const email = user?.email
