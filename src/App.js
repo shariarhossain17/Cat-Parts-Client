@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import RequireAuth from './Pages/Authentication/RequireAuth';
+import AddProfile from './Pages/Dashboard/AddProfile';
 import AddReview from './Pages/Dashboard/AddReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Myorder from './Pages/Dashboard/Myorder';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
+import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 import Home from './Pages/Home/Home';
 import Parts from './Pages/Home/Parts';
 import Login from './Pages/Login/Login';
@@ -28,7 +30,10 @@ function App() {
         <Route index element={<Myorder></Myorder>}></Route>
         <Route path='payment/:id' element={<Payment></Payment>}></Route>
         <Route path='add-review' element={<AddReview></AddReview>}></Route>
-        <Route path='my-profile' element={<MyProfile></MyProfile>}></Route>
+        <Route path='my-profile' element={<MyProfile></MyProfile>}>
+        </Route>
+        <Route path='add-profile' element={<AddProfile></AddProfile>}></Route>
+        <Route path='update-profile' element={<UpdateProfile></UpdateProfile>}></Route>
       
 
 

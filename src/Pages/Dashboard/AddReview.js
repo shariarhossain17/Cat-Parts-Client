@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ReactStars from "react-rating-stars-component";
 import auth from "../../firebase.init";
+import axiosPrivate from "../Api/axiosPrivate";
 import PageTitle from "../Shared/PageTitle";
 
 const AddReview = () => {
@@ -19,7 +20,11 @@ const AddReview = () => {
         userName:user?.displayName,
         email:user?.email
       }
-      console.log(review);
+      axiosPrivate.post('reviews',review)
+      .then(response => {
+          console.log(response);
+          setComment("")
+      })
   }
   return (
     <div>
