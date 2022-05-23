@@ -1,8 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import RequireAdmin from './Pages/Authentication/RequireAdmin';
 import RequireAuth from './Pages/Authentication/RequireAuth';
+import RequireNonAdmin from './Pages/Authentication/RequireNonAdmin';
 import AddProfile from './Pages/Dashboard/AddProfile';
 import AddReview from './Pages/Dashboard/AddReview';
+import AddProduct from './Pages/Dashboard/Admin/AddProduct';
+import Alluser from './Pages/Dashboard/Admin/Alluser';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Myorder from './Pages/Dashboard/Myorder';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -26,14 +30,27 @@ function App() {
         <Route path='/dashboard'element={<RequireAuth>
           <Dashboard></Dashboard>
         </RequireAuth>}>
-        <Route index element={<Myorder></Myorder>}></Route>
-        <Route index element={<Myorder></Myorder>}></Route>
+        <Route index element={<MyProfile></MyProfile>}> </Route>
+        <Route path='my-order' element={
+          <RequireNonAdmin>
+            <Myorder></Myorder>
+          </RequireNonAdmin>
+        }></Route>
         <Route path='payment/:id' element={<Payment></Payment>}></Route>
-        <Route path='add-review' element={<AddReview></AddReview>}></Route>
-        <Route path='my-profile' element={<MyProfile></MyProfile>}>
-        </Route>
+        <Route path='add-review' element={
+          <RequireNonAdmin>
+            <AddReview></AddReview>
+          </RequireNonAdmin>
+        }></Route>
         <Route path='add-profile' element={<AddProfile></AddProfile>}></Route>
         <Route path='update-profile' element={<UpdateProfile></UpdateProfile>}></Route>
+        <Route path='all-user' element={<RequireAdmin>
+          <Alluser></Alluser>
+        </RequireAdmin>}></Route>
+        <Route path='add-product' element={<RequireAdmin>
+          <AddProduct></AddProduct>
+        </RequireAdmin>}></Route>
+        
       
 
 

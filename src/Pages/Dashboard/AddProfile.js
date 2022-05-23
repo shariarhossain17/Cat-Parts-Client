@@ -38,29 +38,37 @@ const AddProfile = () => {
             Add your Information
           </h2>
           <form onSubmit={handleSubmit}>
+          <label className='block font-[500]' htmlFor="">Education:
+              </label>
             <input
               name="education"
               type="text"
               placeholder="Education"
-              class="input input-bordered w-full max-w-lg rounded-full mt-4 required"
+              class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
             />
+             <label className='block font-[500] mt-2' htmlFor="">City:
+              </label>
             <input
               name="city"
               type="text"
               placeholder="City"
-              class="input input-bordered w-full max-w-lg rounded-full mt-4 required"
+              class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
             />
+             <label className='block font-[500] mt-2' htmlFor="">District:
+              </label>
             <input
               name="district"
               type="text"
               placeholder="District"
-              class="input input-bordered w-full max-w-lg rounded-full mt-4 required"
+              class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
             />
+             <label className='block font-[500] mt-2' htmlFor="">Number:
+              </label>
             <input
               name="number"
               type="Number"
               placeholder="Number"
-              class="input input-bordered w-full max-w-lg rounded-full mt-4 required"
+              class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
             />{" "}
             <br />
             <div className="">

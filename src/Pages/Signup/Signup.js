@@ -74,10 +74,10 @@ const Signup = () => {
     );
   }
   return (
-    <div class="hero min-h-screen bg-base-200">
+    <div class="hero min-h-screen bg-[#eff0f5]">
       <PageTitle title="signup"></PageTitle>
       <div class="hero-content ">
-        <div class="card max-w-sm  lg:w-96 shadow-2xl bg-base-100">
+        <div class="card max-w-sm  lg:w-96 shadow-lg bg-base-100">
           <div class="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div class="form-control">
@@ -166,7 +166,7 @@ const Signup = () => {
               </div>
               {signError}
               <div class="form-control mt-6">
-                <button class="btn btn-md">Signup</button>
+                <button class="text-white text-[15px] font-[500] uppercase rounded btn-md bg-[#f85606] ">Signup</button>
               </div>
             </form>
             <p>
@@ -176,8 +176,8 @@ const Signup = () => {
               </Link>
             </p>
             <div class="divider">OR</div>
-            <button onClick={signInGoogle} className="btn btn-md rounded-full">
-              Continue with google
+            <button onClick={signInGoogle} className="text-white text-[15px] font-[400] btn-md bg-[#f85606] rounded-full">
+              CONTINUE WITH GOOGLE
             </button>
           </div>
         </div>

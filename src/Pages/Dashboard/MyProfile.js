@@ -7,7 +7,7 @@ import PageTitle from "../Shared/PageTitle";
 
 const MyProfile = () => {
     const [user] = useAuthState(auth)
-    const [users] = UserInformation()
+    const [users] = UserInformation(user)
   return (
     <div>
       <PageTitle title="my profile"></PageTitle>

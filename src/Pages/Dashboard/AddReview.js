@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ReactStars from "react-rating-stars-component";
+import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import axiosPrivate from "../Api/axiosPrivate";
 import PageTitle from "../Shared/PageTitle";
@@ -23,7 +24,16 @@ const AddReview = () => {
       axiosPrivate.post('reviews',review)
       .then(response => {
           console.log(response);
-          setComment("")
+          if(response.data.insertedId){
+            Swal.fire({
+              icon: "success",
+              title: "Thanks for your feedback",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            setComment("")
+          }
+          
       })
   }
   return (

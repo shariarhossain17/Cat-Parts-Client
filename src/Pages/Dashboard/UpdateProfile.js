@@ -45,7 +45,7 @@ const UpdateProfile = () => {
                 placeholder={user?.displayName}
                 class="input input-bordered w-full max-w-lg rounded-full mt-2 required"
               />
-              <label className='block  font-[500] mt-2' htmlFor="">email <small>(email cannot be change)</small>:
+              <label className='block  font-[500] mt-2' htmlFor="">email <small>(email cannot be changes)</small>:
               </label>
               <input
                 name="email"
