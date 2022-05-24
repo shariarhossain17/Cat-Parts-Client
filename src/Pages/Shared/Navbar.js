@@ -37,7 +37,7 @@ const Navbar = () => {
       <div class="navbar fixed top-0 z-50 left-0  bg-gray-50">
         <div class="navbar-start">
           <div class="dropdown">
-            <label tabindex="0" class="btn btn-secondary lg:hidden">
+            <label tabindex="0" class="bg-[#ff4400] lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -55,7 +55,7 @@ const Navbar = () => {
             </label>
             <ul
               tabindex="0"
-              class="menu menu-compact flex items-center dropdown-content mt-3 p-2 shadow bg-[#242c32]  w-[97vw] text-white"
+              class="menu menu-compact flex items-center dropdown-content mt-5 p-2 shadow bg-gray-50 w-[97vw] text-black"
             >
               {menuItem}
             </ul>

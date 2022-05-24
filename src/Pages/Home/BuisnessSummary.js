@@ -1,6 +1,8 @@
 import React from "react";
+import CountUp from 'react-countup';
 
 const BuisnessSummary = () => {
+
   return (
     <div className="lg:px-16 mt-20">
       <div>
@@ -31,7 +33,9 @@ const BuisnessSummary = () => {
                 />
               </svg>
             </div>
-            <div class="stat-value text-[#00033e]">72</div>
+            <div class="stat-value text-[#00033e]">
+            <CountUp start={1} end={82} />
+            </div>
             <div class="text-xl text-[#28aaa9]">Countries</div>
           </div>
 
@@ -72,7 +76,7 @@ const BuisnessSummary = () => {
                 />
               </svg>
             </div>
-            <div class="stat-value text-[#00033e]">1000+</div>
+            <div class="stat-value text-[#00033e]"><CountUp start={100} end={1000} />+</div>
             <div class="stext-xl text-[#28aaa9]">Feedback</div>
           </div>
         </div>
