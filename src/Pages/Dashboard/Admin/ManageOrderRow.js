@@ -1,8 +1,32 @@
 import React from "react";
+import Swal from "sweetalert2";
+import axiosPrivate from "../../Api/axiosPrivate";
 
-const ManageOrderRow = ({ order, index }) => {
-  console.log(order);
-  const { name, email, price, order: quantity, productName, paid } = order;
+const ManageOrderRow = ({ order, index, refetch }) => {
+  const {
+    _id,
+    name,
+    email,
+    price,
+    order: quantity,
+    productName,
+    paid,
+    status,
+  } = order;
+
+  const handleShipped = () => {
+    axiosPrivate.put(`all-orders/${_id}`).then((response) => {
+      if (response.data.matchedCount > 0) {
+        Swal.fire({
+          icon: "success",
+          title: "order Shipped",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        refetch();
+      }
+    });
+  };
   return (
     <tr>
       <th>{index + 1}</th>
@@ -16,7 +40,7 @@ const ManageOrderRow = ({ order, index }) => {
           paid
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 bg-green-700 rounded-full text-white"
+            class="h-4 w-4 bg-[#ff4400] rounded-full text-white"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -30,10 +54,28 @@ const ManageOrderRow = ({ order, index }) => {
           </svg>
         </td>
       ) : (
-        <td className="text-red-700 font-bold">unpaid</td>
+        <td className="text-red-500 font-bold">unpaid</td>
       )}
-      <td>pending</td>
-      <td><button className="bg-[#ff4400] btn-xs text-white uppercase rounded-xl">Shipped</button></td>
+      {status ? (
+        <td className="text-[#ff4400] font-bold">
+          shipped
+         
+        </td>
+    
+      ) : (
+        <td>pending</td>
+      )}
+      {
+        paid && !status ?   
+        <td>
+        <button
+          onClick={handleShipped}
+          className="bg-[#ff4400] btn-xs text-white uppercase rounded-xl"
+        >
+          Shipped
+        </button>
+      </td> : <td></td>
+      }
     </tr>
   );
 };
