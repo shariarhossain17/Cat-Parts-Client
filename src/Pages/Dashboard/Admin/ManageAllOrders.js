@@ -24,13 +24,18 @@ const ManageAllOrders = () => {
             <tr>
               <th>No</th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Email</th>
+              <th>Product name</th>
+              <th>order</th>
+              <th>Total amount</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Updated</th>
             </tr>
           </thead>
           <tbody>
               {
-                  orders.map((order,index) => <ManageOrderRow key={order._id} order={order}></ManageOrderRow>)
+                  orders.map((order,index) => <ManageOrderRow key={order._id} order={order} index={index}></ManageOrderRow>)
               }
           </tbody>
         </table>
