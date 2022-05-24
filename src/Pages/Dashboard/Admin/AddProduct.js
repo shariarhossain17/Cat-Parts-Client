@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import axiosPrivate from "../../Api/axiosPrivate";
 import PageTitle from "../../Shared/PageTitle";
 
 const AddProduct = () => {
@@ -38,6 +40,19 @@ const AddProduct = () => {
                 minimum_order:data.minimum_order,
                 img:img
             }
+            axiosPrivate.post('/parts',product)
+            .then(response => {
+                if(response.data.insertedId){
+                    Swal.fire({
+                        icon: "success",
+                        title: "product added successful",
+                        showConfirmButton: false,
+                        timer: 1500,
+                      });
+                      reset()
+                }
+                
+            })
         }
     })
     // reset();
@@ -209,7 +224,7 @@ const AddProduct = () => {
               </label>
             </div>
             <div class="form-control mt-6">
-              <button class="bg-[#f57224] py-3 rounded max-w-xs">Signup</button>
+              <button class="bg-[#f57224] py-3 rounded max-w-xs">Add item</button>
             </div>
           </form>
         </div>
