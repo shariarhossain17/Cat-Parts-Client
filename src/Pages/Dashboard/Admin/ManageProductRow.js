@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import axiosPrivate from "../../Api/axiosPrivate";
 
 
-const ManageProductRow = ({ product, index ,refetch}) => {
+const ManageProductRow = ({ product, index ,refetch,setDeleteProduct}) => {
   const [quantity,setQuantity] = useState("")
   const {name,img,Available,minimum_order,price,_id} = product;
   const handleUpdate = () => {
@@ -41,7 +41,7 @@ const ManageProductRow = ({ product, index ,refetch}) => {
       <td>{`$${price} (per piece)`}</td>
       <td><input onChange={(e)=> setQuantity(e.target.value)} className="input input-rounded w-20 required: h-6 bg-[#dbdbda]"  />  <button onClick={ ()=>handleUpdate(_id)} className="bg-[#ff4400] btn-xs text-white rounded uppercase">update</button></td>
       <td>
-          <button  className="text-white rounded btn-xs uppercase  bg-red-600">Delete</button>
+      <label onClick={()=> setDeleteProduct(product)} for="product-delete" class="py-1 text-white rounded btn-xs uppercase  bg-red-600">Delete</label>
       </td>
     </tr>
   );
