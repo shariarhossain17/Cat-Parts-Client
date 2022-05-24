@@ -20,15 +20,8 @@ const AddProduct = () => {
     const formData = new FormData();
     formData.append('image', image);
     const url = `https://api.imgbb.com/1/upload?key=${imgApi_key}`;
-    // fetch(url, {
-    //     method: 'POST',
-    //     body: formData
-    // })
-    // .then(res => res.json())
-    // .then(data => console.log(data))
     axios.post(url,formData)
     .then(response => {
-        // console.log(response.data.data.url);
       
         if(response.data.success){
             const img = response.data.data.url;

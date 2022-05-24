@@ -7,6 +7,7 @@ import AddProfile from './Pages/Dashboard/AddProfile';
 import AddReview from './Pages/Dashboard/AddReview';
 import AddProduct from './Pages/Dashboard/Admin/AddProduct';
 import Alluser from './Pages/Dashboard/Admin/Alluser';
+import ManageProducts from './Pages/Dashboard/Admin/ManageProducts';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Myorder from './Pages/Dashboard/Myorder';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -49,6 +50,9 @@ function App() {
         </RequireAdmin>}></Route>
         <Route path='add-product' element={<RequireAdmin>
           <AddProduct></AddProduct>
+        </RequireAdmin>}></Route>
+        <Route path='manage-product' element={<RequireAdmin>
+          <ManageProducts></ManageProducts>
         </RequireAdmin>}></Route>
         
       

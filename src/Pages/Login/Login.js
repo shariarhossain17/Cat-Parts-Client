@@ -6,7 +6,7 @@ import {
   useSignInWithGoogle
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import auth from "../../firebase.init";
 import useToken from '../../Hooks/useToken';
@@ -42,9 +42,8 @@ const Login = () => {
     signInWithGoogle();
   };
   let navigate = useNavigate();
-  let location = useLocation();
 
-  let from = location.state?.from?.pathname || "/";
+  let from = '/'|| "/";
   useEffect(()=>{
     if(token){
         navigate(from, { replace: true });
