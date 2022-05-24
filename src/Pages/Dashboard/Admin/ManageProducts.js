@@ -21,6 +21,7 @@ const ManageProducts = () => {
   return (
     <div>
         <PageTitle title='manage-product'></PageTitle>
+        <h2 className="text-4xl text-gray-500 text-center mb-4">Manage All Products</h2>
       <div class="overflow-x-auto">
         <table class="table table-zebra w-full">
           <thead>
