@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import axiosPrivate from "../Api/axiosPrivate";
@@ -25,7 +25,7 @@ const Parts = () => {
 
   const [user] = useAuthState(auth);
 
-  const { data, isLoading } = useQuery("/parts", () =>
+  const { data, isLoading,refetch } = useQuery("/parts", () =>
     Fetcher.get(`/parts/${id}`).then((response) => {
       setParts(response.data);
     })
@@ -53,9 +53,10 @@ const Parts = () => {
           timer: 1500,
         });
         reset();
+        
       }
-      Navigate('/')
     });
+
   };
   return (
     <div className="">

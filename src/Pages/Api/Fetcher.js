@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const Fetcher = axios.create({
-    baseURL:"http://localhost:5000"
+    baseURL:"https://young-fortress-41278.herokuapp.com"
 })
 
 export default Fetcher;

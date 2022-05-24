@@ -81,7 +81,7 @@ const Login = () => {
     }
   };
   return (
-    <div class="hero min-h-screen bg-base-200">
+    <div class="hero min-h-screen bg-[#eff0f5]">
       <PageTitle title='login'></PageTitle>
       <div class="hero-content ">
         <div class="card max-w-sm  lg:w-96 shadow-2xl bg-base-100">
@@ -161,7 +161,7 @@ const Login = () => {
               </div>
               {signError}
               <div class="form-control mt-6">
-                <button class="btn btn-md">Login</button>
+                <button class="text-white text-[15px] font-[500] uppercase rounded btn-md bg-[#f85606]">Login</button>
               </div>
             </form>
             <p>
@@ -171,7 +171,7 @@ const Login = () => {
               </Link>
             </p>
             <div class="divider">OR</div>
-            <button onClick={signInGoogle} className="btn btn-md rounded-full">
+            <button onClick={signInGoogle} className="text-white text-[15px] font-[400] btn-md bg-[#f85606] rounded-full uppercase">
               Continue with google
             </button>
           </div>

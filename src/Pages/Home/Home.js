@@ -5,6 +5,7 @@ import PageTitle from '../Shared/PageTitle';
 import Banner from './Banner/Banner';
 import BuisnessSummary from './BuisnessSummary';
 import CarParts from './CarParts';
+import Review from './Review';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Banner/>
             <CarParts/>
             <BuisnessSummary/>
+            <Review/>
             <Fotter/>
         </div>
     );

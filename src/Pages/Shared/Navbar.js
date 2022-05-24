@@ -33,8 +33,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="lg:px-12 bg-[#242c32]">
-      <div class="navbar ">
+    <div className="lg:px-12 mt-16 ">
+      <div class="navbar fixed top-0 z-50 left-0  bg-gray-50">
         <div class="navbar-start">
           <div class="dropdown">
             <label tabindex="0" class="btn btn-secondary lg:hidden">
@@ -60,7 +60,7 @@ const Navbar = () => {
               {menuItem}
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl text-white">daisyUI</a>
+          <a class="btn btn-ghost normal-case text-xl text-black">daisyUI</a>
         </div>
         {pathname.includes("dashboard") && (
           <label for="my-drawer-2" class=" lg:hidden">
@@ -80,7 +80,7 @@ const Navbar = () => {
             </svg>
           </label>
         )}
-        <div class="navbar-end hidden text-white lg:flex">
+        <div class="navbar-end hidden text-black lg:flex">
           <ul class="menu menu-horizontal p-0">{menuItem}</ul>
         </div>
       </div>
