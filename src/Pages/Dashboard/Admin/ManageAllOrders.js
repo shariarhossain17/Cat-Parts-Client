@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import axiosPrivate from "../../Api/axiosPrivate";
 import PageTitle from "../../Shared/PageTitle";
+import CancelModal from "./CancelModal";
 import ManageOrderRow from "./ManageOrderRow";
 
 const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
+  const [cancel,setCancel] = useState(null)
   const { data, isLoading, refetch } = useQuery("all-orders", () => {
     axiosPrivate.get("all-orders").then((response) => {
-      console.log(response);
       setOrders(response.data);
     });
   });
@@ -31,15 +32,17 @@ const ManageAllOrders = () => {
               <th>Payment</th>
               <th>Status</th>
               <th>Updated</th>
+              <th>Cancel order</th>
             </tr>
           </thead>
           <tbody>
               {
-                  orders.map((order,index) => <ManageOrderRow key={order._id} order={order} index={index} refetch={refetch}></ManageOrderRow>)
+                  orders.map((order,index) => <ManageOrderRow key={order._id} order={order} index={index} refetch={refetch} setCancel={setCancel}></ManageOrderRow>)
               }
           </tbody>
         </table>
       </div>
+      <CancelModal cancel={cancel} setCancel={setCancel} refetch={refetch}></CancelModal>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import Swal from "sweetalert2";
 import axiosPrivate from "../../Api/axiosPrivate";
 
-const ManageOrderRow = ({ order, index, refetch }) => {
+const ManageOrderRow = ({ order, index, refetch ,setCancel}) => {
   const {
     _id,
     name,
@@ -57,25 +57,35 @@ const ManageOrderRow = ({ order, index, refetch }) => {
         <td className="text-red-500 font-bold">unpaid</td>
       )}
       {status ? (
-        <td className="text-[#ff4400] font-bold">
-          shipped
-         
-        </td>
-    
+        <td className="text-[#ff4400] font-bold">shipped</td>
       ) : (
         <td>pending</td>
       )}
-      {
-        paid && !status ?   
+      {paid && !status ? (
         <td>
-        <button
-          onClick={handleShipped}
-          className="bg-[#ff4400] btn-xs text-white uppercase rounded-xl"
-        >
-          Shipped
-        </button>
-      </td> : <td></td>
-      }
+          <button
+            onClick={handleShipped}
+            className="bg-[#ff4400] btn-xs text-white uppercase rounded-xl"
+          >
+            Shipped
+          </button>
+        </td>
+      ) : (
+        <td></td>
+      )}
+      {!status ? (
+        <td>
+          <label
+          onClick={()=>setCancel(order)}
+            for="cancel-order"
+            class="py-1 text-white rounded-xl btn-xs uppercase  bg-red-600"
+          >
+            Cancel
+          </label>
+        </td>
+      ) : (
+        <td></td>
+      )}
     </tr>
   );
 };

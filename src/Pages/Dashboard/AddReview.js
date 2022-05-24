@@ -23,7 +23,6 @@ const AddReview = () => {
       }
       axiosPrivate.post('reviews',review)
       .then(response => {
-          console.log(response);
           if(response.data.insertedId){
             Swal.fire({
               icon: "success",

@@ -7,10 +7,10 @@ const CheckooutForm = ({ payments }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCarderror] = useState("");
-  const [processing,setProcessing] = useState(false)
+  const [processing, setProcessing] = useState(false);
   const [success, setSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-  const { name, email,_id} = payments;
+  const { name, email, _id } = payments;
   const price = payments.price * payments.order;
 
   useEffect(() => {
@@ -39,43 +39,40 @@ const CheckooutForm = ({ payments }) => {
     });
 
     setCarderror(error?.message || "");
-    setProcessing(true)
-  
+    setProcessing(true);
+
     const { paymentIntent, error: intentError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
           billing_details: {
-            name:  name ,
-            email: email ,
+            name: name,
+            email: email,
           },
         },
       });
-      if(intentError){
-        setCarderror(intentError?.message)
-        setProcessing(false)
-      }
-      else{
-        setSuccess(paymentIntent.id)
-        setCarderror("")
-        Swal.fire({
-          icon: "success",
-          title: "your payment successful",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+    if (intentError) {
+      setCarderror(intentError?.message);
+      setProcessing(false);
+    } else {
+      setSuccess(paymentIntent.id);
+      setCarderror("");
+      Swal.fire({
+        icon: "success",
+        title: "your payment successful",
+        showConfirmButton: false,
+        timer: 1500,
+      });
 
-        // updated payment
-        const payment ={
-          orderId : _id,
-          transactionId:paymentIntent.id,
-        }
-        axiosPrivate.patch(`orders/${_id}`,payment)
-        .then(response => {
-          setProcessing(false)
-          console.log(response);
-        })
-      }
+      // updated payment
+      const payment = {
+        orderId: _id,
+        transactionId: paymentIntent.id,
+      };
+      axiosPrivate.patch(`orders/${_id}`, payment).then((response) => {
+        setProcessing(false);
+      });
+    }
   };
   return (
     <>
@@ -105,7 +102,11 @@ const CheckooutForm = ({ payments }) => {
         </button>
       </form>
       {cardError && <p className="text-red-500">{cardError}</p>}
-      {success && <p className="text-purple-900 font-semibold">Your transaction id: {success}</p>}
+      {success && (
+        <p className="text-purple-900 font-semibold">
+          Your transaction id: {success}
+        </p>
+      )}
     </>
   );
 };

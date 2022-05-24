@@ -17,7 +17,6 @@ const AddProfile = () => {
       number: event.target.number.value,
     };
     axiosPrivate.patch(`users/${user?.email}`, updateUser).then((response) => {
-      console.log(response);
       if (response.data.matchedCount) {
         Swal.fire({
           icon: "success",

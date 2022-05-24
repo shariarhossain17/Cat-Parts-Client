@@ -1,37 +1,38 @@
 import React from "react";
 import Swal from "sweetalert2";
-import axiosPrivate from "../Api/axiosPrivate";
+import axiosPrivate from "../../Api/axiosPrivate";
 
-const OrderCancelModal = ({ cancel, setCancel, refetch }) => {
+const CancelModal = ({ cancel, setCancel, refetch }) => {
   const handleDelete = () => {
-    axiosPrivate.delete(`orders/${cancel?._id}`).then((response) => {
+    axiosPrivate.delete(`all-orders/${cancel?._id}`).then((response) => {
       if (response.data.deletedCount > 0) {
         Swal.fire({
           icon: "success",
-          title: "your order cancel",
+          title: "order cancel",
           showConfirmButton: false,
           timer: 1500,
         });
-        refetch();
         setCancel(null);
+        refetch();
       }
     });
   };
-
   return (
     <div>
       <input type="checkbox" id="cancel-order" class="modal-toggle" />
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-          <h3 class="font-bold text-lg">
-            Are you sure cancel {cancel?.productName}?
-          </h3>
+          <h3 class="font-bold text-lg">Are you sure?</h3>
           <div class="modal-action">
-            <label onClick={handleDelete} for="cancel-order" class="">
-              <button className="bg-red-700">Delete</button>
+            <label
+              onClick={handleDelete}
+              for="cancel-order"
+              class="btn btn-error bg-red-600 text-white"
+            >
+              Cancel order
             </label>
             <label for="cancel-order" class="btn">
-              Not Now
+              Not now
             </label>
           </div>
         </div>
@@ -40,4 +41,4 @@ const OrderCancelModal = ({ cancel, setCancel, refetch }) => {
   );
 };
 
-export default OrderCancelModal;
+export default CancelModal;
