@@ -1,5 +1,5 @@
 .banner-btn {
-  background: #242c32;
+  background: #ff4400;
   color: #fff;
   transition: 0.9s;
   padding: 15px 30px;
@@ -8,5 +8,5 @@
 }
 .banner-btn:hover {
   background: #fff;
-  color: #242c32;
+  color: #ff4400;
 }
