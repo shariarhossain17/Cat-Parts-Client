@@ -26,6 +26,9 @@ const Navbar = () => {
        <a>
         <CustomLink to="/blogs">Blog</CustomLink>
       </a> 
+       <a>
+        <CustomLink to="/protfolio"> portfolio</CustomLink>
+      </a> 
         {
           user && <a className="bg-[#ff4400] px-4 text-sm flex  text-center py-2 text-white rounded-full font-[500]">
           <p>{user?.displayName}</p>

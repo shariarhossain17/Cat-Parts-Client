@@ -19,6 +19,7 @@ import Home from './Pages/Home/Home';
 import Parts from './Pages/Home/Parts';
 import Login from './Pages/Login/Login';
 import Bloog from './Pages/Shared/Bloog';
+import MyProtfolio from './Pages/Shared/MyProtfolio';
 import Signup from './Pages/Signup/Signup';
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
         </Route>
         <Route path='/all-parts' element={<AllParts>s</AllParts>}></Route>
         <Route path='/blogs' element={<Bloog></Bloog>}></Route>
+        <Route path='/protfolio' element={<MyProtfolio></MyProtfolio>}></Route>
 
         <Route path='/login'element={<Login/>}></Route>
         <Route path='/signup'element={<Signup/>}></Route>
