@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 const BuisnessSummary = () => {
 
   return (
-    <div className="lg:px-16 mt-20">
+    <div className="lg:px-16 my-40">
       <div>
         <h1 className="text-center text-5xl text-[#28aaa9]">
           MILLION BUSINESS TRUST US

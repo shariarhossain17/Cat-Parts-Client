@@ -50,7 +50,7 @@ const Review = () => {
 
   return (
     <div className="mt-16 px-16">
-      <h1 className="text-center text-4xl mb-20 uppercase">Our Client Reviews</h1>
+      <h1 className="text-center text-4xl mb-20 uppercase text-gray-800">Our Client Reviews</h1>
       <Slider {...settings} autoplay={true}>
           {
               reviews.map(review => <ReviewCard key={review._id} review={review} ></ReviewCard>)

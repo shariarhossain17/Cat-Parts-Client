@@ -3,8 +3,10 @@ import Fotter from '../Shared/Fotter';
 import Navbar from '../Shared/Navbar';
 import PageTitle from '../Shared/PageTitle';
 import Banner from './Banner/Banner';
+import Brands from './Brands';
 import BuisnessSummary from './BuisnessSummary';
 import CarParts from './CarParts';
+import Downloads from './Downloads';
 import Review from './Review';
 
 const Home = () => {
@@ -16,6 +18,8 @@ const Home = () => {
             <CarParts/>
             <BuisnessSummary/>
             <Review/>
+            <Brands/>
+            <Downloads/>
             <Fotter/>
         </div>
     );
