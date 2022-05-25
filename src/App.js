@@ -14,6 +14,7 @@ import Myorder from './Pages/Dashboard/Myorder';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Payment from './Pages/Dashboard/Payment';
 import UpdateProfile from './Pages/Dashboard/UpdateProfile';
+import AllParts from './Pages/Home/AllParts';
 import Home from './Pages/Home/Home';
 import Parts from './Pages/Home/Parts';
 import Login from './Pages/Login/Login';
@@ -58,13 +59,8 @@ function App() {
         <Route path='manage-all-orders' element={<RequireAdmin>
           <ManageAllOrders></ManageAllOrders>
         </RequireAdmin>}></Route>
-        
-      
-
-
-
         </Route>
-
+        <Route path='/all-parts' element={<AllParts></AllParts>}></Route>
 
         <Route path='/login'element={<Login/>}></Route>
         <Route path='/signup'element={<Signup/>}></Route>

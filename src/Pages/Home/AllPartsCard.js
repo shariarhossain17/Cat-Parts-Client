@@ -1,7 +1,7 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const PartsCard = ({ part }) => {
+const AllPartsCard = ({part}) => {
     const {name,img,desc,price,minimum_order,Available,_id} = part
     const navigate = useNavigate()
   return (
@@ -31,4 +31,4 @@ const PartsCard = ({ part }) => {
   );
 };
 
-export default PartsCard;
+export default AllPartsCard;
