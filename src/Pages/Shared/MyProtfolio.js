@@ -46,7 +46,8 @@ const MyProtfolio = () => {
            <div>
             <h2 className="text-center text-2xl font-bold ">Three project link</h2>
             <a target='_blank' className="underline text-blue-500" href="https://fitness-power-gym.web.app/" rel="noreferrer">fitness power</a> <br />
-            <a target="_blank" className="underline text-blue-500" href="https://assignment11-dress-shop.web.app/?fbclid=IwAR09A-q18Tv-lzgWmcMaG_hwFCKM0rx1TDo2hFkoM96bXUuj_12N4uxf-Tw" rel="noreferrer">Dress shop full stack</a>
+            <a target="_blank" className="underline text-blue-500" href="https://assignment11-dress-shop.web.app/?fbclid=IwAR09A-q18Tv-lzgWmcMaG_hwFCKM0rx1TDo2hFkoM96bXUuj_12N4uxf-Tw" rel="noreferrer">Dress shop full stack</a> <br />
+            <a target="_blank" className="underline text-blue-500" href="https://car-parts-8c7dd.web.app/" rel="noreferrer">Car parts full stack</a>
            </div>
         </div>
         <div className="mt-16 text-2xl font-bold">
