@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import auth from "../../firebase.init";
 import axiosPrivate from "../Api/axiosPrivate";
@@ -22,7 +22,7 @@ const Parts = () => {
     reset,
     formState: { errors },
   } = useForm();
-
+  const navigate = useNavigate()
   const [user] = useAuthState(auth);
 
   const { data, isLoading,refetch } = useQuery("/parts", () =>
@@ -58,11 +58,12 @@ const Parts = () => {
     });
 
   };
+  
   return (
     <div className="">
       <PageTitle title={"purchase"}></PageTitle>
       <Navbar />
-      <div className="md:flex justify-evenly items-center mt-14">
+      <div className="md:flex justify-evenly  items-center mt-20">
         <div className="">
           <img
             style={{ width: "250px", height: "300px" }}
@@ -70,13 +71,12 @@ const Parts = () => {
             src={parts.img}
             alt=""
           />
-          <div className="mx-auto">
-            <h2 className="text-2xl">Name: {parts.name}</h2>
-            <p className="">{parts.desc}</p>
-            <p className="">price:{`$${parts.price}`}</p>
-            <p className="">Available:{parts.Available}</p>
-            <p className="">Minimum order:{parts.minimum_order}</p>
-          </div>
+           <div className="items-center">
+           <h2 className="text-2xl">Name: {parts.name}</h2>
+            <p className="font-bold">price:{`$${parts.price}`}</p>
+            <p className="font-bold">Available:{parts.Available}</p>
+            <p className="font-bold">Minimum order:{parts.minimum_order}</p>
+           </div>
         </div>
         <div className="shadow-2xl px-16 py-10  lg:w-96">
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -157,15 +157,16 @@ const Parts = () => {
             <div class="form-control mt-6">
               {parseInt(parts?.Available) < parseInt(watch().min_order) ||
               parseInt(parts?.minimum_order) > parseInt(watch().min_order) ? (
-                <button disabled className="btn">
+                <button disabled className="btn bg-black">
                   Book Now
                 </button>
               ) : (
-                <button className="btn">Book Now</button>
+                <button className="btn btn-primary">Book Now</button>
               )}
             </div>
           </form>
         </div>
+       
       </div>
       <Fotter />
     </div>
@@ -173,8 +174,3 @@ const Parts = () => {
 };
 
 export default Parts;
-// {
-//   parseInt(avail_qty) < parseInt(watch().quantity) || parseInt(min_order) > parseInt(watch().quantity) ?
-//       <input type="submit" value='Order' className='btn btn-primary' disabled /> :
-
-//       <input type="submit" value='Order' className='btn btn-primary' />}

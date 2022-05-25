@@ -47,12 +47,6 @@ const Login = () => {
   useEffect(()=>{
     if(token){
         navigate(from, { replace: true });
-        Swal.fire({
-            icon: 'success',
-            title: 'login successful',
-            showConfirmButton: false,
-            timer: 1500
-          })
       }
   },[token])
 

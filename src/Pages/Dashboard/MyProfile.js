@@ -16,7 +16,7 @@ const MyProfile = () => {
          
         </figure>
         <div class="card-body mx-auto mb-4">
-            <div className="flex items-center gap-10 mb-6">
+            <div className="flex items-center gap-6 mb-6">
                 <div>
                     <h1 className="text-2xl">My profile</h1>
                 </div>

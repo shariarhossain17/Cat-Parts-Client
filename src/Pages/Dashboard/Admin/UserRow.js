@@ -59,7 +59,7 @@ const UserRow = ({ user, index, refetch }) => {
       <td>{email}</td>
       <td>
         {role === "admin" ? (
-           <button onClick={removeAdmin} className=" text-white rounded-xl btn-xs uppercase  bg-red-500">Remove admin</button>
+           <button onClick={removeAdmin} className=" text-white rounded-xl btn-xs uppercase  bg-red-600">Remove admin</button>
         ) : (
           <button onClick={handleAdmin} className="bg-[#ff4400] btn-xs text-white uppercase rounded-xl">
             make admin

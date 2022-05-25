@@ -27,11 +27,11 @@ const CancelModal = ({ cancel, setCancel, refetch }) => {
             <label
               onClick={handleDelete}
               for="cancel-order"
-              class="btn btn-error bg-red-600 text-white"
+              class="btn-md bg-red-600 flex font-bold text-white rounded-md uppercase items-center"
             >
               Cancel order
             </label>
-            <label for="cancel-order" class="btn">
+            <label for="cancel-order" class="btn-md bg-[#30d2f2] flex font-bold text-white rounded-md uppercase items-center">
               Not now
             </label>
           </div>

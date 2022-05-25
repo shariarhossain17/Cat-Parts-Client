@@ -24,13 +24,17 @@ const OrderCancelModal = ({ cancel, setCancel, refetch }) => {
       <div class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <h3 class="font-bold text-lg">
-            Are you sure cancel {cancel?.productName}?
+            Are you sure?
           </h3>
           <div class="modal-action">
-            <label onClick={handleDelete} for="cancel-order" class="">
-              <button className="bg-red-700">Delete</button>
+            <label
+              onClick={handleDelete}
+              for="cancel-order"
+              class="bg-red-600 btn-error btn text-white"
+            >
+              Delete
             </label>
-            <label for="cancel-order" class="btn">
+            <label for="cancel-order" class="btn bg-[#30d2f2] text-white">
               Not Now
             </label>
           </div>

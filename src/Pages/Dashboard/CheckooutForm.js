@@ -94,7 +94,7 @@ const CheckooutForm = ({ payments }) => {
           }}
         />
         <button
-          className="btn btn-md mt-4 bg-sky-900"
+          className=" btn-md mt-4 rounded px-6 uppercase font-bold bg-[#ff4400] text-white"
           type="submit"
           disabled={!stripe || !clientSecret}
         >

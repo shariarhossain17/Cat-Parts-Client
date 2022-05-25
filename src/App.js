@@ -18,6 +18,7 @@ import AllParts from './Pages/Home/AllParts';
 import Home from './Pages/Home/Home';
 import Parts from './Pages/Home/Parts';
 import Login from './Pages/Login/Login';
+import Bloog from './Pages/Shared/Bloog';
 import Signup from './Pages/Signup/Signup';
 
 function App() {
@@ -60,7 +61,8 @@ function App() {
           <ManageAllOrders></ManageAllOrders>
         </RequireAdmin>}></Route>
         </Route>
-        <Route path='/all-parts' element={<AllParts></AllParts>}></Route>
+        <Route path='/all-parts' element={<AllParts>s</AllParts>}></Route>
+        <Route path='/blogs' element={<Bloog></Bloog>}></Route>
 
         <Route path='/login'element={<Login/>}></Route>
         <Route path='/signup'element={<Signup/>}></Route>

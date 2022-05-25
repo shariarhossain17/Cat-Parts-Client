@@ -28,11 +28,11 @@ const ManageProductDelete = ({ deleteProduct, setDeleteProduct, refetch }) => {
           <label
               onClick={handleDelete}
               for="product-delete"
-              className="btn btn-error bg-red-600 text-white"
+              className="btn-md bg-red-600 flex font-bold text-white rounded-md uppercase items-center"
             >
               Delete
             </label>
-            <label for="product-delete" class="btn">
+            <label for="product-delete" class="btn-md bg-[#30d2f2] flex font-bold text-white rounded-md uppercase items-center">
               Cancel
             </label>
           </div>

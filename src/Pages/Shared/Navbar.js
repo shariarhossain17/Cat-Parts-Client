@@ -23,9 +23,14 @@ const Navbar = () => {
           <CustomLink to="/dashboard">Dashboard</CustomLink>
         </a>
       )}
-        <a className="bg-[#ff4400] px-4  py-2 text-white rounded-full font-[500]">
-        <p>{user?.displayName}</p>
+       <a>
+        <CustomLink to="/blogs">Blog</CustomLink>
       </a>
+        {
+          user && <a className="bg-[#ff4400] px-4  py-2 text-white rounded-full font-[500]">
+          <p>{user?.displayName}</p>
+        </a>
+        }
       {user ? (
         <button onClick={logOut} className="btn btn-ghost">
           logout

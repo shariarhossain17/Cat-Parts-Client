@@ -13,7 +13,7 @@ const OrdersRow = ({ order, index,setCancel }) => {
       <td>{`$${quantity * price}`}</td>
       <td>
         {!order.paid ? (
-          <label onClick={()=>setCancel(order)} for="cancel-order" class="btn btn-error modal-button text-white rounded-md btn-xs bg-red-700">Cancel</label>
+          <label onClick={()=>setCancel(order)} for="cancel-order" class="btn btn-error modal-button text-white rounded-md btn-xs bg-red-600">Cancel</label>
         ) : (
          <div className="flex">
             <p className="text-slate-800 font-bold">
@@ -55,7 +55,7 @@ const OrdersRow = ({ order, index,setCancel }) => {
           </div>
         ) : (
           <Link to={`/dashboard/payment/${_id}`}>
-            <button className="btn btn-xs">Pay</button>
+            <button className="bg-[#ff4400] text-white px-4  rounded">Pay</button>
           </Link>
         )}
       </td>
