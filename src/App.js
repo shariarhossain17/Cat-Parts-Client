@@ -20,6 +20,7 @@ import Parts from './Pages/Home/Parts';
 import Login from './Pages/Login/Login';
 import Bloog from './Pages/Shared/Bloog';
 import MyProtfolio from './Pages/Shared/MyProtfolio';
+import NotFound from './Pages/Shared/NotFound';
 import Signup from './Pages/Signup/Signup';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
         <Route path='/all-parts' element={<AllParts>s</AllParts>}></Route>
         <Route path='/blogs' element={<Bloog></Bloog>}></Route>
         <Route path='/protfolio' element={<MyProtfolio></MyProtfolio>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
         <Route path='/login'element={<Login/>}></Route>
         <Route path='/signup'element={<Signup/>}></Route>
