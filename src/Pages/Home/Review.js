@@ -53,7 +53,7 @@ const Review = () => {
       <h1 className="text-center text-4xl mb-20 uppercase text-gray-800">Our Client Reviews</h1>
       <Slider {...settings} autoplay={true}>
           {
-              reviews.map(review => <ReviewCard key={review._id} review={review} ></ReviewCard>)
+              reviews.slice(0,6).map(review => <ReviewCard key={review._id} review={review} ></ReviewCard>)
           }
       </Slider>
     </div>
