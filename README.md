@@ -1,4 +1,9 @@
 live site link https://car-parts-8c7dd.web.app
+- Admin Credentials
+- Email:admin@gmail.com
+- Password:123456
+
+Project overview
 
 - this is full stack webseite
 - this website use font end react js and use for style tailwind css backend express js frame work of node js and server side mongodb
